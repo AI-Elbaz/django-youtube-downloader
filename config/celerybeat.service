@@ -1,0 +1,17 @@
+[Unit]
+Description=Celery Service
+After=network.target
+
+[Service]
+Type=simple
+User=furja_user
+Group=furja_user
+EnvironmentFile=/etc/default/celeryd
+WorkingDirectory=/home/furja_user/furja
+ExecStart=/bin/sh -c '${CELERY_BIN} -A ${CELERY_APP} beat \
+    --pidfile=${CELERYBEAT_PID_FILE} \
+    --logfile=${CELERYBEAT_LOG_FILE} \
+    --loglevel=${CELERYD_LOG_LEVEL}'
+
+[Install]
+WantedBy=multi-user.target

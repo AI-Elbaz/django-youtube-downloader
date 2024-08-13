@@ -1,0 +1,8 @@
+**/__pycache__
+db.sqlite3
+static_root
+.env
+media
+dump.rdb
+test.json
+celerybeat-schedule.*

@@ -1,0 +1,16 @@
+<section class="samples container">
+    <h2>Suggested</h2>
+    <div class="grid">
+        {% for video in sample %}
+        <a href="{% url 'download' video.id %}">
+            <div class="sample">
+                <img src="{{video.thumbnail}}" alt="{{video.title}}">
+                <div class="details">
+                    <p>{{video.title}}</p>
+                    <span>{{video.duration}}</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>

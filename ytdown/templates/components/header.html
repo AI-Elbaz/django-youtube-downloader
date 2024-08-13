@@ -1,0 +1,12 @@
+<header>
+    <div class="container">
+        <p class="logo">Furja - فرجة</p>
+        <h1 class="title">Watch and Download Youtube Videos</h1>
+        {% include 'components/form.html' %}
+        <div class="errors">
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</header>

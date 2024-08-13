@@ -1,0 +1,7 @@
+CREATE DATABASE furja_db;
+CREATE USER furja_user WITH PASSWORD 'furja_password';
+ALTER ROLE furja_user SET client_encoding TO 'utf8';
+ALTER ROLE furja_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE furja_user SET timezone TO 'UTC';
+ALTER DATABASE furja_db OWNER TO furja_user;
+GRANT ALL PRIVILEGES ON DATABASE furja_db TO furja_user;

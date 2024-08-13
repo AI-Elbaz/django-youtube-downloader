@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furja | {{video.title}}</title>
+    <link rel="stylesheet" href="{% static 'css/download.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
+
+    <meta name="description" content="Watch this amazing video about {{video.title}}">
+    <meta name="keywords" content="{{keywords}}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="video.movie">
+    <meta property="og:title" content="{{video.title}}">
+    <meta property="og:description" content="Watch this amazing video about {{video.title}}">
+    <meta property="og:image" content="{{video.thumbnail}}">
+    <meta property="og:url" content="https://www.{{DOMAIN}}{% url 'download' video.id %}">
+    <meta property="og:video" content="https://www.{{DOMAIN}}{% url 'download' video.id %}">
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+    <meta property="og:site_name" content="Furja">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="{{video.title}}">
+    <meta name="twitter:description" content="Watch this amazing video about {{video.title}}">
+    <meta name="twitter:image" content="{{video.thumbnail}}">
+    <meta name="twitter:site" content="@FurjaClick">
+    <meta name="twitter:player" content="https://www.{{DOMAIN}}{% url 'download' video.id %}">
+    <meta name="twitter:player:width" content="1280">
+    <meta name="twitter:player:height" content="720">
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "VideoObject",
+          "name": "{{video.title}}",
+          "description": "Watch this amazing video about {{video.title}}",
+          "thumbnailUrl": "{{video.thumbnail}}",
+          "uploadDate": "{{video.date_added}}",
+          "duration": "{{iso_duration}}",
+          "contentUrl": "https://www.{{DOMAIN}}{% url 'download' video.id %}",
+          "embedUrl": "https://www.{{DOMAIN}}{% url 'download' video.id %}",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Furja",
+            "logo": {
+              "@type": "ImageObject",
+              "url": ""
+            }
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Furja"
+          }
+        }
+    </script>
+</head>
+
+<body>
+    {% include 'components/header.html' %}
+    <main class="container">
+        <div class="video-details">
+            <h1>{{video.title}}</h1>
+            <span>{{video.duration}}</span>
+        </div>
+        <div class="video-wrapper">
+            <button>
+                <?xml version="1.0" encoding="UTF-8"?><svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" color="#ffffff" stroke-width="1.5">
+                    <path
+                        d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947C6 19.4119 6.50592 19.7002 6.90588 19.4632L18.629 12.5162C19.0211 12.2838 19.0211 11.7162 18.629 11.4838L6.90588 4.53682Z"
+                        fill="#ffffff" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+            <img src="{{video.thumbnail}}" alt="{{video.title}}">
+        </div>
+        <div class="buttons-container">
+            <button id="downloadMP4">
+                <?xml version="1.0" encoding="UTF-8"?><svg width="40px" height="40px" stroke-width="1.5"
+                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#ffffff">
+                    <path d="M6 20L18 20" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    <path d="M12 4V16M12 16L15.5 12.5M12 16L8.5 12.5" stroke="#ffffff" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                Download MP4
+            </button>
+            <button id="downloadMP3">
+                <?xml version="1.0" encoding="UTF-8"?><svg width="40px" height="40px" stroke-width="1.5"
+                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#ffffff">
+                    <path d="M6 20L18 20" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    <path d="M12 4V16M12 16L15.5 12.5M12 16L8.5 12.5" stroke="#ffffff" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                Download MP3
+            </button>
+        </div>
+        <div class="progress-container" id="progressContainer">
+            <div class="details">
+                <p id="status">Preparing</p>
+                <p id="progressPercent">0%</p>
+            </div>
+            <div class="progress-bar">
+                <div id="progress"></div>
+            </div>
+        </div>
+    </main>
+    <hr>
+    {% include 'components/sample.html' %}
+    {% include 'components/footer.html' %}
+    <script>
+        window.VIDEO_ID = '{{video.id}}';
+        window.csrfToken = '{{csrf_token}}';
+    </script>
+</body>
+
+</html>

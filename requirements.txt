@@ -1,0 +1,14 @@
+celery==5.4.0
+celery-progress==0.4
+Django==5.0.6
+django-celery-beat==2.6.0
+django-celery-results==2.5.1
+django-ratelimit==4.1.0
+google-api-python-client==2.134.0
+isodate==0.6.1
+pymemcache==4.0.0
+python-dotenv==1.0.1
+redis==5.0.6
+yt-dlp==2024.5.27
+gunicorn
+psycopg2-binary

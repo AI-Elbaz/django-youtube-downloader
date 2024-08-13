@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furja</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+    <main>
+        {% include 'components/header.html' %}
+        {% include 'components/sample.html' %}
+        <section class="steps">
+            <div class="container">
+                <div class="step">
+                    <div class="icon">
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="64px" height="64px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1c1c1c"><path d="M4 6H20C21.1046 6 22 6.89543 22 8V16C22 17.1046 21.1046 18 20 18H4C2.89543 18 2 17.1046 2 16V8C2 6.89543 2.89543 6 4 6Z" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 8.5H6.5M8 8.5H6.5M6.5 8.5V15.5M6.5 15.5H5M6.5 15.5H8" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3>Enter YouTube video URL</h3>
+                </div>
+                <div class="step">
+                    <div class="icon">
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="64px" height="64px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1c1c1c"><path d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947C6 19.4119 6.50592 19.7002 6.90588 19.4632L18.629 12.5162C19.0211 12.2838 19.0211 11.7162 18.629 11.4838L6.90588 4.53682Z" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3>Watch videos for free</h3>
+                </div>
+                <div class="step">
+                    <div class="icon">
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="64px" height="64px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1c1c1c"><path d="M6 20L18 20" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 4V16M12 16L15.5 12.5M12 16L8.5 12.5" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3>Download videos in MP3 or MP4</h3>
+                </div>
+            </div>
+        </section>
+        <section class="faq container">
+            <h2>Frequently Asked Questions</h1>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <input type="checkbox" id="accordion1">
+                        <label for="accordion1" class="accordion-item-title"><span class="icon"></span>
+                            How to download YouTube videos from Furja
+                        </label>
+                        <div class="accordion-item-desc">
+                            To download videos, you can use Furja. Simply copy the URL of the
+                            video you want to download, paste it into the Furja downloader's input field, and select
+                            the desired video format before initiating the download process.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <input type="checkbox" id="accordion2">
+                        <label for="accordion2" class="accordion-item-title"><span class="icon"></span>
+                            How to convert YouTube videos to MP3 Format
+                        </label>
+                        <div class="accordion-item-desc">
+                            To convert YouTube videos to MP3 format, you can use the Free YouTube to MP3 Converter.
+                            Simply copy and paste the video's URL into the provided input field and click the
+                            <b>Download MP3</b> button to start the conversion then click <b>Download</b> to
+                            initiate download
+                            process.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <input type="checkbox" id="accordion3">
+                        <label for="accordion3" class="accordion-item-title"><span class="icon"></span>
+                            How to convert YouTube videos to MP4 Format
+                        </label>
+                        <div class="accordion-item-desc">To convert YouTube videos to MP4 format, you can use the
+                            Free YouTube to MP4 Converter.
+                            Simply copy and paste the video's URL into the provided input field and click the
+                            <b>Download MP4</b> button to start the conversion then click <b>Download</b> to
+                            initiate download
+                            process.
+                        </div>
+                    </div>
+        </section>
+    </main>
+    {% include 'components/footer.html' %}
+</body>
+
+</html>
